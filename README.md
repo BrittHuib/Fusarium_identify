@@ -22,11 +22,9 @@ First, a Snakemake workflow was used to assess the quality of the raw sequencing
 > [!IMPORTANT]
 > Input files may differ depending on the dataset or experimental setup. Make sure to adjust file paths, formats, and naming conventions accordingly.
 
-
-
-> [!NOTE]
-> Switch over to the novo_assembly enviroment
 ## AUGUSTUS
+> [!NOTE]
+> Switch over to the novo_assembly environment
 Subsequently, AUGUSTUS was used for gene prediction:
 Augustus - - species=fusarium_gramineasrum fusarium_unknown.faa > augustus_output.gff  
 The resulting AUGUSTUS output was then used as input for antiSMASH to identify and annotate potential secondary metabolite biosynthetic gene clusters.
