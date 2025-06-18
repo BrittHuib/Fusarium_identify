@@ -19,11 +19,11 @@ Barrmap, Augustus, Orthofinder, bedtools.
 ## Snakefile
 First, a Snakemake workflow was used to assess the quality of the raw sequencing reads. Subsequently, genome assembly was performed using Flye, followed by quality assessment using BUSCO and QUAST. To further improve the Flye assemblies, Medaka polishing was applied, after which the assemblies were evaluated using the same quality assessment. Additionally, TeloVision was used to assess chromosomal completeness by examining the presence of telomeric and centromeric regions
 [snakefile](./Snakefile)
-[! IMPORTANT]
-Input files may differ depending on the dataset or experimental setup. Make sure to adjust file paths, formats, and naming conventions accordingly.
+>[! IMPORTANT]
+>Input files may differ depending on the dataset or experimental setup. Make sure to adjust file paths, formats, and naming conventions accordingly.
 
-[! NOTE]
-Switch over to the novo_assembly enviroment
+>[! NOTE]
+>Switch over to the novo_assembly enviroment
 ## AUGUSTUS
 
 Augustus - - species=fusarium_gramineasrum fusarium_unknown.faa > augustus_output.gff  
