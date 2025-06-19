@@ -31,7 +31,14 @@ Augustus - - species=fusarium_gramineasrum fusarium_unknown.faa > augustus_outpu
 The resulting AUGUSTUS output was then used as input for antiSMASH to identify and annotate potential secondary metabolite biosynthetic gene clusters.
 
 ## Orthofinder
+Orthofinder was used to find gene clusters: 
+orthofinder -f ./fusarium_unknown.faa
+The output was used to make a phylogenetic tree with different Fusarium species. and to visualize orthologous genes. 
 
 ## Barrmap
+Barrmap was used to look for the presence of 5.8S, 5S, etc. The input is Orthogroups.tsv:
+barrnap --kingdom euk Medaka_output/Fusarium_unknown.fasta > Fusarium_SPP1_rRNA.gff
 
 ## bedtools
+the bedtools was used to extract sequences from the based on the idenitfy from barrmap:
+bedtools getfasta -fi Medaka_output/Fusarium_SPP1.fasta -bed Fusarium_SPP1_rRNA.gff -fo rRNA_sequences.fasta
