@@ -34,3 +34,6 @@ The resulting AUGUSTUS output was then used as input for antiSMASH to identify a
 Orthofinder was used to find gene clusters: 
 orthofinder -f ./fusarium_unknown.faa
 The output was used to make a phylogenetic tree with different Fusarium species. and to visualize orthologous genes. 
+
+## Dry-lab
+If you want to see how we this came together follow this link [Dry-lab](./Dry Lab).
