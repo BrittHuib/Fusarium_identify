@@ -1,16 +1,16 @@
-##Augustus
+Augustus
 Als eerste zijn er verschillende commands voor augustus geprobeerd. Er is hiermee begonnen aangezien de files voor het project nog niet aanwezig waren en hierdoor dus geëxperimenteerd werden fasta files van ... Hierbij is gekeken naar welke species er gebruikt kan worden en welke input en output er nodig waren. 
 Augustus - - species=fusarium_gramineasrum fusarium_unknown.faa > augustus_output.gff  = hierbij waren er geen sequencties aanwezig
 vervolgens is er nog een andere species geprobeerd namelijk: fusarium neurospora_crassa. Deze gaf ook geen sequencties.
 Nu bleek het dat de input bestand niet goed was, met het fasta bestand van de een andere fusarium lukte het wel. 
 de output van Augustus is omgezet van .gff naar .faa met een script (voeg script toe)
 
-##FungiSMASH
+FungiSMASH
 fungismash wordt als eerste gedownload door middel van bioconda gffread. Deze zou vervolgens met dit command moet werken: gffread augustus_output.gff -g Fusarium_fujikuroi.FASTA -o augustus_fungiSmash.gtf.
 Maar hier kwam niet het gewenste uitkomst uit, aangezien de databases niet gedownloaden konden worden omdat ze te groot worden. 
 Daarom is hierna FungiSMASH via de website uitgevoerd. met .gff en .fasta files.
 
-##Quality Control
+Quality Control
 Uiteindelijk zijn de fasta files voor het project aangeleverd. hiermee is de kwaliteit bekeken met fastQC door middel van:
 Fastqc data/fusfu1_AssemblyScaffolds.fasta = deze werkte niet.
 Om fastqc te laten runnen moest er meer RAM worden toegewezen aan het command om het te laten werken, dit is uitgevoerd met het volgende command; 
@@ -20,19 +20,19 @@ Fastqc -Xmx4g Project_fastq/M2324-017_Fusarium-spp1.fastq.gz -o fastqc_spp1_outp
 Ook is er met Nanoplot gekeken naar de kwaliteit:
 NanoPlot –fastq fastq/M2324-017_Fusarium-spp1.fastq.gz -o nanoplot_reads_output –loglength –N50
 
-##Flye 
+Flye 
 Flye werd uitgevoerd voor genoom assembly:
 Flye  - - nano-raw data/Fusfu1_AssemblyScaffolds.fasta - - out-dir assembly_ouput -  - genome-size 60m 
 deze was niet goed aangezien de genome-size kleiner moest zijn aangezien de total read length: 43832314 was. 
 Dus vervolgens is deze gebruikt: flye --nano-raw fastq/M2324-017_Fusarium-spp1.fastq.gz -o assembly_spp1_output --genome-size 46m 
 
-##Medaka
+Medaka
 Om te kijken of Flye goed genoeg was is er een pohlising tool gebruikt namelijk medaka. en hierop is er een Quast op zowel flye assembly en de polished assembly.
 dit is gedaan met het volgende command; 
 quast assembly_spp1_output/assembly.fasta -o quast_output 				(voor de ‘normale’ assembly) 
 quast Medaka_output/consensus.fasta -o quast_output_medaka 				( voor de ‘polished medaka assembly) 
 
-##TeloVision
+TeloVision
 Ook is er een TeloVision uitgevoerd op beide assembly's om de telomeren te bekijken. 
 telovision -i Medaka_output/consensus.fasta -o telovision_output_medaka  --sorted 
 telovision -i assembly_spp1_output/assembly.fasta -o telovision_output –sorted 
