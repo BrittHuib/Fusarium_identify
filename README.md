@@ -36,4 +36,4 @@ orthofinder -f ./fusarium_unknown.faa
 The output was used to make a phylogenetic tree with different Fusarium species. and to visualize orthologous genes. 
 
 ## Dry-lab
-If you want to see how we this came together follow this link [Dry-Lab](./DryLab).
+If you want to see how we this came together follow this link [Dry Lab](./Dry-Lab).
