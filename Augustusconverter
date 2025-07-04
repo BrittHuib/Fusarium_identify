@@ -1,0 +1,23 @@
+infile = 'augustus_output_spp1_medaka.gff' 
+
+outputfile = 'augustus_output.faa' 
+
+with open(infile, 'r') as handle: 
+
+    lines = handle.read().split("start gene")[1:]  # split after reading 
+
+dictionary = {} 
+
+for line in lines: 
+
+    header = ">" + line.split("\n")[0].replace(" ", "")  # Header generation 
+
+    sequence = line.split('# protein sequence = [')[1].split("]")[0].replace("\n# ", "")  # Sequence generation 
+
+    dictionary[header] = sequence 
+
+with open(outputfile, 'w') as file: 
+
+    for key, value in dictionary.items(): 
+
+        file.write(key + "\n" + value + "\n")  # directly write two rows 
